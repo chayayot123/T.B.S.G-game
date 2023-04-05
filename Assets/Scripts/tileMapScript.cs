@@ -689,52 +689,26 @@ public class tileMapScript : MonoBehaviour
 
                 neighbourHash = tempNeighbourHash;
                 tempNeighbourHash = new HashSet<Node>();
-                if (i < attRange - 1)
-                {
-                    seenNodes.UnionWith(neighbourHash);
-                }
-
+                seenNodes.UnionWith(neighbourHash);
             }
-            neighbourHash.ExceptWith(seenNodes);
-            seenNodes = new HashSet<Node>();
-            totalAttackableTiles.UnionWith(neighbourHash);
+            totalAttackableTiles.UnionWith(seenNodes);
         }
-        totalAttackableTiles.Remove(unitInitialNode);
-        
-        return (totalAttackableTiles);
+        totalAttackableTiles.Add(unitInitialNode);
+
+        return totalAttackableTiles;
     }
+
 
 
     public HashSet<Node> getUnitAttackOptionsFromPosition()
     {
-        HashSet<Node> tempNeighbourHash = new HashSet<Node>();
-        HashSet<Node> neighbourHash = new HashSet<Node>();
-        HashSet<Node> seenNodes = new HashSet<Node>();
         Node initialNode = graph[selectedUnit.GetComponent<UnitScript>().x, selectedUnit.GetComponent<UnitScript>().y];
         int attRange = selectedUnit.GetComponent<UnitScript>().attackRange;
 
+        HashSet<Node> attackableTiles = getUnitTotalAttackableTiles(new HashSet<Node> { initialNode }, attRange, initialNode);
+        attackableTiles.Remove(initialNode);
 
-        neighbourHash = new HashSet<Node>();
-        neighbourHash.Add(initialNode);
-        for (int i = 0; i < attRange; i++)
-        {
-            foreach (Node t in neighbourHash)
-            {
-                foreach (Node tn in t.neighbours)
-                {
-                    tempNeighbourHash.Add(tn);
-                }
-            }
-            neighbourHash = tempNeighbourHash;
-            tempNeighbourHash = new HashSet<Node>();
-            if (i < attRange - 1)
-            {
-                seenNodes.UnionWith(neighbourHash);
-            }
-        }
-        neighbourHash.ExceptWith(seenNodes);
-        neighbourHash.Remove(initialNode);
-        return neighbourHash;
+        return attackableTiles;
     }
 
     public HashSet<Node> getTileUnitIsOccupying()
