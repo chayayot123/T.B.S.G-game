@@ -153,7 +153,7 @@ public class gameManagerScript : MonoBehaviour
         {
             currentTeam = 0;
         }
-        
+
     }
 
 
