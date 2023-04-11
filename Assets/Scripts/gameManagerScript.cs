@@ -39,6 +39,7 @@ public class gameManagerScript : MonoBehaviour
     public bool displayingUnitInfo;
 
     public tileMapScript TMS;
+    public DessertMapScript TMS1;
 
     //Cursor Info for tileMapScript
     public int cursorX;
@@ -141,7 +142,7 @@ public class gameManagerScript : MonoBehaviour
 
     public void setCurrentTeamUI()
     {
-        currentTeamUI.SetText("Team : Player " + (currentTeam+1).ToString());
+        currentTeamUI.SetText("Team: " + (currentTeam+1).ToString());
     }
 
 

@@ -23,7 +23,7 @@ public class UnitScript : MonoBehaviour
 
     public GameObject damagedParticle;
     public string unitName;
-    public int moveSpeed = 20;    
+    public int moveSpeed = 20;
     public int attackRange = 1;
     public int attackDamage = 1;
     public int maxHealthPoints = 500;
@@ -64,15 +64,15 @@ public class UnitScript : MonoBehaviour
         animator = holder2D.GetComponent<Animator>();
         movementQueue = new Queue<int>();
         combatQueue = new Queue<int>();
-       
-        
+
+
         x = (int)transform.position.x;
         y = (int)transform.position.z;
         unitMoveState = movementStates.Unselected;
         currentHealthPoints = maxHealthPoints;
         hitPointsText.SetText(currentHealthPoints.ToString());
-        
-     
+
+
     }
 
     public void LateUpdate()
@@ -91,13 +91,13 @@ public class UnitScript : MonoBehaviour
         {
             StartCoroutine(moveOverSeconds(transform.gameObject, path[path.Count - 1]));
         }
-        
-     }
 
-   
+    }
+
+
     public void moveAgain()
     {
-        
+
         path = null;
         setMovementState(0);
         completedMovement = false;
@@ -122,13 +122,13 @@ public class UnitScript : MonoBehaviour
             return movementStates.Wait;
         }
         return movementStates.Unselected;
-        
+
     }
     public void setMovementState(int i)
     {
         if (i == 0)
         {
-            unitMoveState =  movementStates.Unselected;
+            unitMoveState = movementStates.Unselected;
         }
         else if (i == 1)
         {
@@ -142,7 +142,7 @@ public class UnitScript : MonoBehaviour
         {
             unitMoveState = movementStates.Wait;
         }
-       
+
 
     }
     public void updateHealthUI()
@@ -168,7 +168,7 @@ public class UnitScript : MonoBehaviour
         }
         else if (i == 1)
         {
-           
+
             healthBar.color = Color.red;
         }
     }
@@ -179,23 +179,23 @@ public class UnitScript : MonoBehaviour
             StartCoroutine(fadeOut());
             StartCoroutine(checkIfRoutinesRunning());
         }
-       
+
     }
     public IEnumerator checkIfRoutinesRunning()
     {
-        while (combatQueue.Count>0)
+        while (combatQueue.Count > 0)
         {
-          
+
             yield return new WaitForEndOfFrame();
         }
         Destroy(gameObject);
-    }    
+    }
     public IEnumerator fadeOut()
     {
 
         combatQueue.Enqueue(1);
         Renderer rend = GetComponentInChildren<SpriteRenderer>();
-        
+
         for (float f = 1f; f >= .05; f -= 0.01f)
         {
             Color c = rend.material.color;
@@ -205,21 +205,21 @@ public class UnitScript : MonoBehaviour
         }
         combatQueue.Dequeue();
     }
-    public IEnumerator moveOverSeconds(GameObject objectToMove,Node endNode)
+    public IEnumerator moveOverSeconds(GameObject objectToMove, Node endNode)
     {
         movementQueue.Enqueue(1);
-        
+
         path.RemoveAt(0);
         while (path.Count != 0)
         {
-            
+
             Vector3 endPos = map.tileCoordToWorldCoord(path[0].x, path[0].y);
             objectToMove.transform.position = Vector3.Lerp(transform.position, endPos, visualMovementSpeed);
             if ((transform.position - endPos).sqrMagnitude < 0.001)
             {
 
                 path.RemoveAt(0);
-              
+
             }
             yield return new WaitForEndOfFrame();
         }
@@ -238,12 +238,12 @@ public class UnitScript : MonoBehaviour
     {
 
         combatQueue.Enqueue(1);
-       
+
         damagePopupText.SetText(damageTaken.ToString());
         damagePopupCanvas.enabled = true;
-        for (float f = 1f; f >=-0.01f; f -= 0.01f)
+        for (float f = 1f; f >= -0.01f; f -= 0.01f)
         {
-            
+
             Color backDrop = damageBackdrop.GetComponent<Image>().color;
             Color damageValue = damagePopupText.color;
 
@@ -251,9 +251,9 @@ public class UnitScript : MonoBehaviour
             damageValue.a = f;
             damageBackdrop.GetComponent<Image>().color = backDrop;
             damagePopupText.color = damageValue;
-           yield return new WaitForEndOfFrame();
+            yield return new WaitForEndOfFrame();
         }
-        combatQueue.Dequeue(); 
+        combatQueue.Dequeue();
     }
     public void resetPath()
     {
