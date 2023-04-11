@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.Events;
-
+using System;
 
 public class tileMapScript : MonoBehaviour    
 {
@@ -123,30 +123,95 @@ public class tileMapScript : MonoBehaviour
                 tiles[x, y] = 0;
             }
         }
+        tiles[4, 4] = 8;
+        tiles[0, 4] = 2;
+        tiles[1, 4] = 8;
+        tiles[2, 4] = 8;
+        tiles[3, 4] = 9;
+        tiles[5, 4] = 9;
+        tiles[6, 4] = 8;
+        tiles[7, 4] = 8;
+        tiles[8, 4] = 10;
 
-        for (int x = 0; x <= 8; x++)
-        {
-            for (int y = 1; y <= 7; y++)
-            {
-                tiles[x, y] = Random.Range(0, 3);
-            }
-        }
+        tiles[0, 5] = 13;
+        tiles[1, 5] = 8;
+        tiles[2, 5] = 8;
+        tiles[3, 5] = 9;
+        tiles[4, 5] = 8;
+        tiles[5, 5] = 9;
+        tiles[6, 5] = 8;
+        tiles[7, 5] = 8;
+        tiles[8, 5] = 7;
 
-        for (int x = 1; x <= 3; x++)
-        {
-            for (int y = 2; y <= 6; y++)
-            {
-                tiles[x, y] = Random.Range(1, 4);
-            }
-        }
+        tiles[0, 3] = 12;
+        tiles[1, 3] = 8;
+        tiles[2, 3] = 8;
+        tiles[3, 3] = 9;
+        tiles[4, 3] = 8;
+        tiles[5, 3] = 9;
+        tiles[6, 3] = 8;
+        tiles[7, 3] = 8;
+        tiles[8, 3] = 15;
 
-        for (int x = 5; x <= 7; x++)
-        {
-            for (int y = 2; y <= 6; y++)
-            {
-                tiles[x, y] = Random.Range(1, 4);
-            }
-        }
+        tiles[0, 0] = 1;
+        tiles[1, 0] = 3;
+        tiles[2, 0] = 19;
+        tiles[3, 0] = 18;
+        tiles[4, 0] = 17;
+        tiles[5, 0] = 16;
+        tiles[6, 0] = 15;
+        tiles[7, 0] = 12;
+        tiles[8, 0] = 13;
+
+        tiles[0, 1] = 12;
+        tiles[1, 1] = 7;
+        tiles[2, 1] = 18;
+        tiles[3, 1] = 16;
+        tiles[4, 1] = 12;
+        tiles[5, 1] = 7;
+        tiles[6, 1] = 18;
+        tiles[7, 1] = 16;
+        tiles[8, 1] = 11;
+
+        tiles[0, 2] = 15;
+        tiles[1, 2] = 12;
+        tiles[2, 2] = 13;
+        tiles[3, 2] = 14;
+        tiles[4, 2] = 10;
+        tiles[5, 2] = 17;
+        tiles[6, 2] = 18;
+        tiles[7, 2] = 12;
+        tiles[8, 2] = 6;
+
+
+        tiles[0, 7] = 3;
+        tiles[2, 7] = 7;
+        tiles[3, 7] = 4;
+        tiles[4, 7] = 1;
+        tiles[5, 7] = 12;
+        tiles[6, 7] = 10;
+        tiles[7, 7] = 6;
+        tiles[8, 7] = 2;
+
+        tiles[0, 6] = 18;
+        tiles[1, 6] = 17;
+        tiles[2, 6] = 2;
+        tiles[3, 6] = 5;
+        tiles[4, 6] = 4;
+        tiles[5, 6] = 19;
+        tiles[6, 6] = 3;
+        tiles[7, 6] = 1;
+
+
+        tiles[0, 8] = 1;
+        tiles[1, 8] = 3;
+        tiles[2, 8] = 19;
+        tiles[3, 8] = 18;
+        tiles[4, 8] = 5;
+        tiles[5, 8] = 15;
+        tiles[6, 8] = 16;
+        tiles[7, 2] = 12;
+        tiles[8, 2] = 6;
     }
 
     public void generatePathFindingGraph()
@@ -841,5 +906,10 @@ public class tileMapScript : MonoBehaviour
 
         }
         return false;
+    }
+
+    public static implicit operator tileMapScript(DessertMapScript v)
+    {
+        throw new NotImplementedException();
     }
 }

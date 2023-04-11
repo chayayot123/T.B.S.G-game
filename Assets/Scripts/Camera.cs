@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    internal static object main;
 
     public IEnumerator camShake(float duration, float camShakeStrength, Vector3 direction)
     {
