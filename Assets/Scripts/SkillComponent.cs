@@ -8,7 +8,12 @@ public class SkillComponent : MonoBehaviour
     public int cooldownTurns = 3;
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
-    public int cooldowncount = 0;
+    public int cooldowncount = 3;
+
+    private void Awake()
+    {
+        cooldowncount = cooldownTurns;
+    }
 
     public void UseSkill(int currentTurn, UnitScript user)
     {
@@ -49,7 +54,7 @@ public class SkillComponent : MonoBehaviour
             }
             else
             {
-                cooldowncount = 2;
+                cooldowncount = cooldownTurns;
             }
         }
     }
