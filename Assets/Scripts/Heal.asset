@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3445384a600ecbb4ca69bf045fe89d54, type: 3}
   m_Name: Heal
   m_EditorClassIdentifier: 
-  skillName: Healing
+  skillName: Heal
   skillpower: 2
   effect: Healing Unit
   icon: {fileID: 0}
