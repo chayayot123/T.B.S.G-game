@@ -214,6 +214,24 @@ public class tileMapScript : MonoBehaviour
         tiles[8, 2] = 6;
     }
 
+    public void getUnitsAlive(int turn)
+    {
+        List<UnitScript> unitsAlive = new List<UnitScript>();
+        foreach (Transform team in unitsOnBoard.transform)
+        {
+            foreach (Transform unitOnTeam in team)
+            {
+                int unitX = unitOnTeam.GetComponent<UnitScript>().x;
+                int unitY = unitOnTeam.GetComponent<UnitScript>().y;
+                unitOnTeam.GetComponent<UnitScript>().tileBeingOccupied = tilesOnMap[unitX, unitY];
+                SkillComponent skillComponent = unitOnTeam.transform.GetComponent<SkillComponent>();
+                skillComponent.UpdateCooldown(turn);
+                // Debug.Log(skillComponent + "Hello");
+            }
+        }
+    }
+    
+
     public void generatePathFindingGraph()
     {
         graph = new Node[mapSizeX, mapSizeY];

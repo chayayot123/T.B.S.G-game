@@ -9,6 +9,7 @@ public class gameManagerScript : MonoBehaviour
 
     public TMP_Text currentTeamUI;
     public Canvas displayWinnerUI;
+    public TMP_Text skillCooldownUI;
 
     public TMP_Text UIunitCurrentHealth;
     public TMP_Text UIunitAttackDamage;
@@ -54,6 +55,10 @@ public class gameManagerScript : MonoBehaviour
     public bool unitPathExists;
     public Material UICursor;
 
+    public SkillButton SB;
+    public int turn;
+    public int turncount;
+
     public int routeToX;
     public int routeToY;
 
@@ -73,8 +78,10 @@ public class gameManagerScript : MonoBehaviour
         unitPathExists = false;       
       
         TMS = GetComponent<tileMapScript>();
+        turn = 1;
+        turncount = 0;
 
-        
+
     }
 
     public void Update()
@@ -85,9 +92,15 @@ public class gameManagerScript : MonoBehaviour
         {
             cursorUIUpdate();
             unitUIUpdate();
+            SB.HideButton();
 
             if (TMS.selectedUnit != null && TMS.selectedUnit.GetComponent<UnitScript>().getMovementStateEnum(1) == TMS.selectedUnit.GetComponent<UnitScript>().unitMoveState)
             {
+                SB.GetUnitData(TMS.selectedUnit.GetComponent<UnitScript>());
+                setSkillCooldownUI(SB.GetSkillCooldown(turn));
+                SB.SendCurrentTurn(turn);
+                SB.RevealButton();
+
                 if (TMS.selectedUnitMoveRange.Contains(TMS.graph[cursorX, cursorY]))
                 {
                     if (cursorX != TMS.selectedUnit.GetComponent<UnitScript>().x || cursorY != TMS.selectedUnit.GetComponent<UnitScript>().y)
@@ -140,6 +153,11 @@ public class gameManagerScript : MonoBehaviour
         }
     }
 
+    public void setSkillCooldownUI(int skillcd)
+    {
+        skillCooldownUI.SetText((skillcd).ToString());
+    }
+
     public void setCurrentTeamUI()
     {
         currentTeamUI.SetText("Team: " + (currentTeam+1).ToString());
@@ -184,13 +202,25 @@ public class gameManagerScript : MonoBehaviour
 
     public void endTurn()
     {
-        
         if (TMS.selectedUnit == null)
         {
             switchCurrentPlayer();
             teamHealthbarColorUpdate();
             setCurrentTeamUI();
         }
+
+        if (turncount == 0)
+        {
+            turncount++;
+        }
+        else if (turncount == 1)
+        {
+            turn++;
+            turncount = 0;
+            Debug.Log(turn);
+        }
+        //update units skill cooldown
+        TMS.getUnitsAlive(turn);
     }
 
 

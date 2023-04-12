@@ -54,8 +54,14 @@ namespace CameraControl
         {
             Gizmos.color = Color.red;
             Gizmos.DrawSphere(transform.position, 5f);
+
+            // Set the center position of the cube to (5, 0, 5)
+            Vector3 cubeCenter = new Vector3(5f, 0f, 5f);
+
             Vector3 cubeSize = new Vector3(_range.x * 2f, 5f, _range.y * 2f);
-            Gizmos.DrawWireCube(Vector3.zero, cubeSize);
+
+            // Draw a wire cube centered at (5, 0, 5) with the specified size
+            Gizmos.DrawWireCube(cubeCenter, cubeSize);
         }
     }
 }

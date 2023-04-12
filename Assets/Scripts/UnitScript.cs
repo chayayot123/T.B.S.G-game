@@ -155,6 +155,11 @@ public class UnitScript : MonoBehaviour
         currentHealthPoints = currentHealthPoints - x;
         updateHealthUI();
     }
+    public void heal(int x)
+    {
+        currentHealthPoints = currentHealthPoints + x;
+        updateHealthUI();
+    }
     public void wait()
     {
 
