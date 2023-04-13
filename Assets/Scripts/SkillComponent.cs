@@ -9,6 +9,8 @@ public class SkillComponent : MonoBehaviour
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
     public int cooldowncount = 3;
+    public GameObject skillEffectPrefab;
+
 
     private void Awake()
     {
@@ -23,6 +25,8 @@ public class SkillComponent : MonoBehaviour
             if (skill.skillName == "Heal")
             {
                 user.heal(skill.skillpower);
+                GameObject skillEffectInstance = Instantiate(skillEffectPrefab, transform.position, Quaternion.identity);
+                skillEffectInstance.transform.SetParent(transform); // optional: attach the effect to the character's transform for easier management
             }
             else if (skill.skillName == "dealdamage")
             {

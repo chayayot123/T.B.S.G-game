@@ -160,7 +160,7 @@ public class gameManagerScript : MonoBehaviour
 
     public void setCurrentTeamUI()
     {
-        currentTeamUI.SetText("Team: " + (currentTeam+1).ToString());
+        currentTeamUI.SetText("Player: " + (currentTeam+1).ToString());
     }
 
 
