@@ -215,12 +215,13 @@ public class gameManagerScript : MonoBehaviour
         }
         else if (turncount == 1)
         {
+            TMS.getUnitsAlive(turn);
             turn++;
             turncount = 0;
-            Debug.Log(turn);
+            Debug.Log("Current turn = : " + turn);
         }
-        //update units skill cooldown
-        TMS.getUnitsAlive(turn);
+        // TMS.getUnitsAlive(turn);
+        
     }
 
 
