@@ -12,5 +12,5 @@ public class Skill : ScriptableObject
     // public int cooldowncount;
 
     // public SkillEffect effect;
-    public Sprite icon;
+    // public Sprite icon;
 }

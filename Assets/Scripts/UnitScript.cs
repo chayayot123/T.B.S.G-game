@@ -58,6 +58,8 @@ public class UnitScript : MonoBehaviour
     public List<Node> pathForMovement = null;
     public bool completedMovement = false;
 
+    public ParticleSystem skillFXPrefab;
+
     private void Awake()
     {
 
@@ -157,12 +159,12 @@ public class UnitScript : MonoBehaviour
     }
     public void heal(int x)
     {
+        Instantiate(skillFXPrefab, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
         currentHealthPoints = currentHealthPoints + x;
         updateHealthUI();
     }
     public void wait()
     {
-
         gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
     public void changeHealthBarColour(int i)

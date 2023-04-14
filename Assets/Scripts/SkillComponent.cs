@@ -9,6 +9,7 @@ public class SkillComponent : MonoBehaviour
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
     public int cooldowncount;
+    public Sprite icon;
     // public GameObject skillEffectPrefab;
 
 
@@ -72,5 +73,10 @@ public class SkillComponent : MonoBehaviour
     public int SkillCD(int currentTurn)
     {
         return cooldowncount;
+    }
+
+    public Sprite SkillSprite()
+    {
+        return icon;
     }
 }

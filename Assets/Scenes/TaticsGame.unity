@@ -4776,6 +4776,7 @@ MonoBehaviour:
   unitInMovement: 0
   unitMoveState: 0
   completedMovement: 0
+  skillFXPrefab: {fileID: 0}
 --- !u!114 &552187034
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4829,6 +4830,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!4 &554045926 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4722777099801206, guid: 2c8c8f6e18ebee1428f6bebd2df4d192,
@@ -8165,6 +8167,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1001 &898522473
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9977,6 +9980,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1 &1100683292
 GameObject:
   m_ObjectHideFlags: 0
@@ -10690,6 +10694,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1001 &1168232683
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13527,6 +13532,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1 &1557263396
 GameObject:
   m_ObjectHideFlags: 0
@@ -15701,6 +15707,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 3
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1 &1826811765
 GameObject:
   m_ObjectHideFlags: 0
@@ -15930,6 +15937,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 3
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1 &1880728758
 GameObject:
   m_ObjectHideFlags: 0
@@ -17669,6 +17677,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
+      propertyPath: SkillFX
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
@@ -17680,6 +17693,17 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
+      propertyPath: skillEffect
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
+      propertyPath: skillFXPrefab
+      value: 
+      objectReference: {fileID: 19800006, guid: 60bc526f4be1e044ab9e46340b82ffb3,
+        type: 3}
+    - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
       propertyPath: unitMoveState
       value: 0
       objectReference: {fileID: 0}
@@ -17687,6 +17711,11 @@ PrefabInstance:
         type: 3}
       propertyPath: unitInMovement
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
+      propertyPath: myParticleSystem
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 389158418196998006, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
