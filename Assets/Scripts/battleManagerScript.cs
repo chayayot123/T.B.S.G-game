@@ -88,7 +88,7 @@ public class battleManagerScript : MonoBehaviour
         }
         while (Status)
         { 
-            StartCoroutine(CSS.camShake(.2f,unit.GetComponent<UnitScript>().attackDamage,GetDirection(unit,enemy)));
+           // StartCoroutine(CSS.camShake(.2f,unit.GetComponent<UnitScript>().attackDamage,GetDirection(unit,enemy)));
             if(unit.GetComponent<UnitScript>().attackRange == enemy.GetComponent<UnitScript>().attackRange && enemy.GetComponent<UnitScript>().currentHealthPoints - unit.GetComponent<UnitScript>().attackDamage > 0)
             {
                 StartCoroutine(unit.GetComponent<UnitScript>().displayDamageEnum(enemy.GetComponent<UnitScript>().attackDamage));

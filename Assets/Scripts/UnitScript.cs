@@ -16,9 +16,6 @@ public class UnitScript : MonoBehaviour
     public Queue<int> combatQueue;
     public float visualMovementSpeed = .15f;
 
-    public Animator animator;
-
-
     public GameObject tileBeingOccupied;
 
     public GameObject damagedParticle;
@@ -29,6 +26,7 @@ public class UnitScript : MonoBehaviour
     public int maxHealthPoints = 500;
     public int currentHealthPoints;
     public Sprite unitSprite;
+    public GameObject unitObject;
 
     [Header("UI Elements")]
     public Canvas healthBarCanvas;
@@ -63,7 +61,6 @@ public class UnitScript : MonoBehaviour
     private void Awake()
     {
 
-        animator = holder2D.GetComponent<Animator>();
         movementQueue = new Queue<int>();
         combatQueue = new Queue<int>();
 
@@ -105,6 +102,7 @@ public class UnitScript : MonoBehaviour
         completedMovement = false;
         gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
+
     public movementStates getMovementStateEnum(int i)
     {
         if (i == 0)
@@ -166,6 +164,7 @@ public class UnitScript : MonoBehaviour
     public void wait()
     {
         gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
+        unitObject.GetComponentInChildren<SpriteRenderer>().color = Color.gray;
     }
     public void changeHealthBarColour(int i)
     {
@@ -184,6 +183,7 @@ public class UnitScript : MonoBehaviour
         if (holder2D.activeSelf)
         {
             StartCoroutine(fadeOut());
+            StartCoroutine(fadeOutObject(unitObject));
             StartCoroutine(checkIfRoutinesRunning());
         }
 
@@ -212,6 +212,23 @@ public class UnitScript : MonoBehaviour
         }
         combatQueue.Dequeue();
     }
+
+    public IEnumerator fadeOutObject(GameObject obj)
+    {
+
+        combatQueue.Enqueue(1);
+        Renderer rend = obj.GetComponentInChildren<SpriteRenderer>();
+
+        for (float f = 1f; f >= .05; f -= 0.01f)
+        {
+            Color c = rend.material.color;
+            c.a = f;
+            rend.material.color = c;
+            yield return new WaitForEndOfFrame();
+        }
+        combatQueue.Dequeue();
+    }
+
     public IEnumerator moveOverSeconds(GameObject objectToMove, Node endNode)
     {
         movementQueue.Enqueue(1);

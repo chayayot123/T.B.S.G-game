@@ -62,12 +62,27 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 389158416595220268, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
+      propertyPath: m_TextStyleHashCode
+      value: -1183493901
+      objectReference: {fileID: 0}
     - target: {fileID: 389158416980047173, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 4d23c14255ab0104bb4a43855ddc7d36,
         type: 3}
+    - target: {fileID: 389158417337783357, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 389158417565336921, guid: a5aa38a24d34b66418746c1c8f056faa,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 389158418196998001, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
       propertyPath: moveSpeed
@@ -97,7 +112,7 @@ PrefabInstance:
     - target: {fileID: 389158418196998006, guid: a5aa38a24d34b66418746c1c8f056faa,
         type: 3}
       propertyPath: m_Name
-      value: Bishop
+      value: Bishop Variant 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a5aa38a24d34b66418746c1c8f056faa, type: 3}
