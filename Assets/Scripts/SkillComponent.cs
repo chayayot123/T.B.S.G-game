@@ -9,7 +9,6 @@ public class SkillComponent : MonoBehaviour
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
     public int cooldowncount;
-    public Sprite icon;
     // public GameObject skillEffectPrefab;
 
 
@@ -20,7 +19,7 @@ public class SkillComponent : MonoBehaviour
 
     public void UseSkill(int currentTurn, UnitScript user)
     {
-        // Debug.Log(skill.skillName);
+        Debug.Log(skill.skillName);
         if (!isOnCooldown)
         {
             if (skill.skillName == "Heal")
@@ -29,14 +28,15 @@ public class SkillComponent : MonoBehaviour
                 // GameObject skillEffectInstance = Instantiate(skillEffectPrefab, transform.position, Quaternion.identity);
                 // skillEffectInstance.transform.SetParent(transform); // optional: attach the effect to the character's transform for easier management
             }
-            else if (skill.skillName == "dealdamage")
+            else if (skill.skillName == "berserkMode")
             {
-                user.dealDamage(skill.skillpower);
-                // Debug.Log("Sample2");
+                Debug.Log("Sample2");
+                user.berserkMode(skill.skillpower);
             }
-            else
+            else if (skill.skillName == "AtkBuff")
             {
-                // Debug.Log("FK U");
+                // Debug.Log("Attack buff");
+                user.atkBuff(skill.skillpower);
             }
             cooldowncount = cooldownTurns;
             lastUsedTurn = currentTurn;
@@ -73,10 +73,5 @@ public class SkillComponent : MonoBehaviour
     public int SkillCD(int currentTurn)
     {
         return cooldowncount;
-    }
-
-    public Sprite SkillSprite()
-    {
-        return icon;
     }
 }

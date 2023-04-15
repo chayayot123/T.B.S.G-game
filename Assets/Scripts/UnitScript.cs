@@ -20,13 +20,14 @@ public class UnitScript : MonoBehaviour
 
     public GameObject damagedParticle;
     public string unitName;
-    public int moveSpeed = 20;
+    public int moveSpeed = 1;
     public int attackRange = 1;
     public int attackDamage = 1;
     public int maxHealthPoints = 500;
     public int currentHealthPoints;
     public Sprite unitSprite;
     public GameObject unitObject;
+    public gameManagerScript GMS;
 
     [Header("UI Elements")]
     public Canvas healthBarCanvas;
@@ -155,6 +156,22 @@ public class UnitScript : MonoBehaviour
         currentHealthPoints = currentHealthPoints - x;
         updateHealthUI();
     }
+    public void atkBuff(int x)
+    {
+        //Debug.Log("Buff dmg");
+        Instantiate(skillFXPrefab, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+        attackDamage = attackDamage + x;
+    }
+
+    public void berserkMode(int x)
+    {
+        currentHealthPoints = currentHealthPoints + x;
+        attackDamage = attackDamage + x;
+        Instantiate(skillFXPrefab, gameObject.transform.position, Quaternion.Euler(-90, 0, 0));
+        updateHealthUI();
+
+    }
+
     public void heal(int x)
     {
         Instantiate(skillFXPrefab, gameObject.transform.position, Quaternion.Euler(90, 0, 0));
@@ -178,6 +195,7 @@ public class UnitScript : MonoBehaviour
             healthBar.color = Color.red;
         }
     }
+
     public void unitDie()
     {
         if (holder2D.activeSelf)

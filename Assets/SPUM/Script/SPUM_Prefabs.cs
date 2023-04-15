@@ -51,7 +51,7 @@ public class SPUM_Prefabs : MonoBehaviour
 
             case 6: //Attack Magic
                 Debug.Log("Playing attack magic animation...");
-                _anim.SetTrigger("Attack");
+            _anim.SetTrigger("Attack");
             _anim.SetFloat("AttackState",0.0f);
             _anim.SetFloat("NormalState",1.0f);
             break;

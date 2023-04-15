@@ -598,7 +598,7 @@ public class tileMapScript : MonoBehaviour
                     if (unitClicked.GetComponent<UnitScript>().currentHealthPoints > 0)
                     {
                         StartCoroutine(BMS.Attack(selectedUnit, unitClicked));
-                        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(6);
+                        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(4);
                         StartCoroutine(deselectAfterMovements(selectedUnit, unitClicked));
                     }
             }
