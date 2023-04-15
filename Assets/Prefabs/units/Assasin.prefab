@@ -108,7 +108,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7145088333132877387}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
 --- !u!33 &4825294060974978499
 MeshFilter:
@@ -206,7 +206,7 @@ RectTransform:
   m_Children:
   - {fileID: 1216139015524307407}
   m_Father: {fileID: 7145088333132877387}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -304,9 +304,9 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 4837797882155271429}
   - {fileID: 1685067403123896805}
   - {fileID: 7806637050459062709}
-  - {fileID: 4837797882155271429}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -327,7 +327,6 @@ MonoBehaviour:
   y: 0
   coroutineRunning: 0
   visualMovementSpeed: 0.15
-  animator: {fileID: 0}
   tileBeingOccupied: {fileID: 0}
   damagedParticle: {fileID: 1908652125826162151, guid: 66dc3b0b00d9ec2449372775c9528d29,
     type: 3}
@@ -914,7 +913,7 @@ PrefabInstance:
     - target: {fileID: 2306834058533053601, guid: f5ca85e04d76f420f8220a07d0f1d282,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2306834058533053601, guid: f5ca85e04d76f420f8220a07d0f1d282,
         type: 3}

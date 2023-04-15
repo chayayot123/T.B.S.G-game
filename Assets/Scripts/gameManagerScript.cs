@@ -168,11 +168,24 @@ public class gameManagerScript : MonoBehaviour
     {
         resetUnitsMovements(returnTeam(currentTeam));
         currentTeam++;
+
         if (currentTeam == numberOfTeams)
         {
             currentTeam = 0;
         }
 
+        // Switch camera rotation based on current team
+        CameraControl.CameraRotation cameraRotation = FindObjectOfType<CameraControl.CameraRotation>();
+        if (currentTeam == 1)
+        {
+            cameraRotation.transform.eulerAngles = new Vector3(0f, 180f, 0f);
+            cameraRotation.TargetAngle = 180f;
+        }
+        else
+        {
+            cameraRotation.transform.eulerAngles = new Vector3(0f, 0f, 0f);
+            cameraRotation.TargetAngle = 0f;
+        }
     }
 
 

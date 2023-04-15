@@ -19,11 +19,13 @@ public class SPUM_Prefabs : MonoBehaviour
         switch(num)
         {
             case 0: //Idle
-            _anim.SetFloat("RunState",0f);
+                Debug.Log("ideal");
+                _anim.SetFloat("RunState",0f);
             break;
 
             case 1: //Run
-            _anim.SetFloat("RunState",0.5f);
+                Debug.Log("run");
+                _anim.SetBool("Run", true);
             break;
 
             case 2: //Death
@@ -48,7 +50,8 @@ public class SPUM_Prefabs : MonoBehaviour
             break;
 
             case 6: //Attack Magic
-            _anim.SetTrigger("Attack");
+                Debug.Log("Playing attack magic animation...");
+                _anim.SetTrigger("Attack");
             _anim.SetFloat("AttackState",0.0f);
             _anim.SetFloat("NormalState",1.0f);
             break;
@@ -70,6 +73,11 @@ public class SPUM_Prefabs : MonoBehaviour
             _anim.SetFloat("AttackState",1.0f);
             _anim.SetFloat("SkillState",1.0f);
             break;
+
+            case 10: //Run
+                Debug.Log("run");
+                _anim.SetBool("Run", false);
+                break;
         }
     }
 }

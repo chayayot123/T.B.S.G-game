@@ -16,9 +16,6 @@ public class UnitScript : MonoBehaviour
     public Queue<int> combatQueue;
     public float visualMovementSpeed = .15f;
 
-    public Animator animator;
-
-
     public GameObject tileBeingOccupied;
 
     public GameObject damagedParticle;
@@ -62,7 +59,6 @@ public class UnitScript : MonoBehaviour
     private void Awake()
     {
 
-        animator = holder2D.GetComponent<Animator>();
         movementQueue = new Queue<int>();
         combatQueue = new Queue<int>();
 
@@ -104,6 +100,7 @@ public class UnitScript : MonoBehaviour
         completedMovement = false;
         gameObject.GetComponentInChildren<SpriteRenderer>().color = Color.white;
     }
+
     public movementStates getMovementStateEnum(int i)
     {
         if (i == 0)

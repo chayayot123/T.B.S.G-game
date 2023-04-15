@@ -10,6 +10,12 @@ namespace CameraControl
         private float _targetAngle;
         private float _currentAngle;
 
+        public float TargetAngle
+        {
+            get => _targetAngle;
+            set => _targetAngle = value;
+        }
+
         private void Awake()
         {
             transform.eulerAngles = new Vector3(70, transform.eulerAngles.y, transform.eulerAngles.z); // Set initial rotation

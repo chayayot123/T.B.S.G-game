@@ -79,8 +79,8 @@ public class tileMapScript : MonoBehaviour
                     unitSelectedPreviousX = selectedUnit.GetComponent<UnitScript>().x;
                     unitSelectedPreviousY = selectedUnit.GetComponent<UnitScript>().y;
                     previousOccupiedTile = selectedUnit.GetComponent<UnitScript>().tileBeingOccupied;
+                    selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(1);
                     moveUnit();
-                    
                     StartCoroutine(moveUnitAndFinalize());
                     
                 }
@@ -100,6 +100,7 @@ public class tileMapScript : MonoBehaviour
                 {
                     if (selectedUnit.GetComponent<UnitScript>().unitMoveState != selectedUnit.GetComponent<UnitScript>().getMovementStateEnum(3))
                     {
+                        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(0);
                         deselectUnit();
                     }
                 }
@@ -506,10 +507,9 @@ public class tileMapScript : MonoBehaviour
     {
         tilesOnMap[selectedUnit.GetComponent<UnitScript>().x, selectedUnit.GetComponent<UnitScript>().y].GetComponent<ClickableTileScript>().unitOnTile = selectedUnit;
         selectedUnit.GetComponent<UnitScript>().setMovementState(2);
-       
+        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(1);
         highlightUnitAttackOptionsFromPosition();
-        highlightTileUnitIsOccupying();
-    }
+        highlightTileUnitIsOccupying();    }
 
     public void mouseClickToSelectUnitV2()
     {
@@ -559,7 +559,8 @@ public class tileMapScript : MonoBehaviour
                 {
                     disableHighlightUnitRange();
                     selectedUnit.GetComponent<UnitScript>().wait();
-                    selectedUnit.GetComponent<UnitScript>().setMovementState(3);
+                        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(0);
+                        selectedUnit.GetComponent<UnitScript>().setMovementState(3);
                     deselectUnit();
 
 
@@ -587,7 +588,8 @@ public class tileMapScript : MonoBehaviour
             {
                 disableHighlightUnitRange();
                 selectedUnit.GetComponent<UnitScript>().wait();
-                selectedUnit.GetComponent<UnitScript>().setMovementState(3);
+                    selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(0);
+                    selectedUnit.GetComponent<UnitScript>().setMovementState(3);
                 deselectUnit();
 
             }
@@ -596,6 +598,7 @@ public class tileMapScript : MonoBehaviour
                     if (unitClicked.GetComponent<UnitScript>().currentHealthPoints > 0)
                     {
                         StartCoroutine(BMS.Attack(selectedUnit, unitClicked));
+                        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(6);
                         StartCoroutine(deselectAfterMovements(selectedUnit, unitClicked));
                     }
             }
@@ -862,6 +865,7 @@ public class tileMapScript : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         finalizeMovementPosition();
+        selectedUnit.GetComponent<SPUM_Prefabs>().PlayAnimation(10);
     }
 
     public IEnumerator deselectAfterMovements(GameObject unit, GameObject enemy)
