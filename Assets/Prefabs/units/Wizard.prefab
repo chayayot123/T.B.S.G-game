@@ -732,7 +732,7 @@ RectTransform:
   m_Children:
   - {fileID: 389158416882717257}
   m_Father: {fileID: 389158416528714653}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -830,8 +830,8 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 389158417565336921}
   - {fileID: 1032537300858560352}
+  - {fileID: 389158417565336921}
   - {fileID: 389158416968996346}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -853,7 +853,6 @@ MonoBehaviour:
   y: 0
   coroutineRunning: 0
   visualMovementSpeed: 0.15
-  animator: {fileID: 0}
   tileBeingOccupied: {fileID: 0}
   damagedParticle: {fileID: 1908652125826162151, guid: 66dc3b0b00d9ec2449372775c9528d29,
     type: 3}
@@ -880,6 +879,7 @@ MonoBehaviour:
   unitInMovement: 0
   unitMoveState: 0
   completedMovement: 0
+  skillFXPrefab: {fileID: 19800006, guid: 60bc526f4be1e044ab9e46340b82ffb3, type: 3}
 --- !u!114 &-7409042111180001991
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -895,6 +895,7 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
+  icon: {fileID: 0}
 --- !u!1001 &2201312379506301882
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -920,7 +921,7 @@ PrefabInstance:
     - target: {fileID: 1213982635612128474, guid: b9cc5906a72b344599a6111ad64f7856,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1213982635612128474, guid: b9cc5906a72b344599a6111ad64f7856,
         type: 3}
