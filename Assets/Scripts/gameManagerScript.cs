@@ -8,6 +8,7 @@ public class gameManagerScript : MonoBehaviour
    
 
     public TMP_Text currentTeamUI;
+    public TMP_Text skillCooldownUI;
     public Canvas displayWinnerUI;
     public TMP_Text skillCooldownUI;
 
@@ -61,27 +62,30 @@ public class gameManagerScript : MonoBehaviour
 
     public int routeToX;
     public int routeToY;
-
-
     public GameObject quadThatIsOneAwayFromUnit;
 
+    public SkillButton SB;
+    public int turn;
+    public int turncount;
    
     public void Start()
     {
         currentTeam = 0;
         setCurrentTeamUI();
-        teamHealthbarColorUpdate();
+        // teamHealthbarColorUpdate();
         displayingUnitInfo = false;
         playerPhaseAnim = playerPhaseBlock.GetComponent<Animator>();
         playerPhaseText = playerPhaseBlock.GetComponentInChildren<TextMeshProUGUI>();
         unitPathToCursor = new List<Node>();
         unitPathExists = false;       
-      
         TMS = GetComponent<tileMapScript>();
         turn = 1;
         turncount = 0;
+<<<<<<< HEAD
 
 
+=======
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
     }
 
     public void Update()
@@ -93,14 +97,21 @@ public class gameManagerScript : MonoBehaviour
             cursorUIUpdate();
             unitUIUpdate();
             SB.HideButton();
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
             if (TMS.selectedUnit != null && TMS.selectedUnit.GetComponent<UnitScript>().getMovementStateEnum(1) == TMS.selectedUnit.GetComponent<UnitScript>().unitMoveState)
             {
                 SB.GetUnitData(TMS.selectedUnit.GetComponent<UnitScript>());
                 setSkillCooldownUI(SB.GetSkillCooldown(turn));
                 SB.SendCurrentTurn(turn);
                 SB.RevealButton();
+<<<<<<< HEAD
 
+=======
+                
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
                 if (TMS.selectedUnitMoveRange.Contains(TMS.graph[cursorX, cursorY]))
                 {
                     if (cursorX != TMS.selectedUnit.GetComponent<UnitScript>().x || cursorY != TMS.selectedUnit.GetComponent<UnitScript>().y)
@@ -163,6 +174,10 @@ public class gameManagerScript : MonoBehaviour
         currentTeamUI.SetText("Player: " + (currentTeam+1).ToString());
     }
 
+    public void setSkillCooldownUI(int skillcd)
+    {
+        skillCooldownUI.SetText((skillcd).ToString());
+    }
 
     public void switchCurrentPlayer()
     {
@@ -173,6 +188,7 @@ public class gameManagerScript : MonoBehaviour
         {
             currentTeam = 0;
         }
+<<<<<<< HEAD
 
         // Switch camera rotation based on current team
         CameraControl.CameraRotation cameraRotation = FindObjectOfType<CameraControl.CameraRotation>();
@@ -186,8 +202,9 @@ public class gameManagerScript : MonoBehaviour
             cameraRotation.transform.eulerAngles = new Vector3(0f, 0f, 0f);
             cameraRotation.TargetAngle = 0f;
         }
+=======
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
     }
-
 
     public GameObject returnTeam(int i)
     {
@@ -203,7 +220,6 @@ public class gameManagerScript : MonoBehaviour
         return teamToReturn;
     }
 
-
     public void resetUnitsMovements(GameObject teamToReset)
     {
         foreach (Transform unit in teamToReset.transform)
@@ -212,15 +228,15 @@ public class gameManagerScript : MonoBehaviour
         }
     }
 
-
     public void endTurn()
     {
         if (TMS.selectedUnit == null)
         {
             switchCurrentPlayer();
-            teamHealthbarColorUpdate();
+            // teamHealthbarColorUpdate();
             setCurrentTeamUI();
         }
+<<<<<<< HEAD
 
         if (turncount == 0)
         {
@@ -236,15 +252,23 @@ public class gameManagerScript : MonoBehaviour
         // TMS.getUnitsAlive(turn);
         
     }
+=======
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
 
+        if (turncount == 0) {
+            turncount++;
+        } else if (turncount == 1) {
+            turn++;
+            turncount = 0;
+        }
+        //update units skill cooldown
+        TMS.getUnitsAlive(turn);
+    }
 
     public void checkIfUnitsRemain(GameObject unit, GameObject enemy)
     {
-
         StartCoroutine(checkIfUnitsRemainCoroutine(unit,enemy));
     }
-
-
 
     public void cursorUIUpdate()
     {
@@ -266,7 +290,6 @@ public class gameManagerScript : MonoBehaviour
     {
         int tileX = tile.GetComponent<ClickableTileScript>().tileX;
         int tileY = tile.GetComponent<ClickableTileScript>().tileY;
-
         if (tileBeingDisplayed == null || tileBeingDisplayed != tile)
         {
             TMS.quadOnMapCursor[selectedXTile, selectedYTile].GetComponent<MeshRenderer>().enabled = false;
@@ -301,7 +324,6 @@ public class gameManagerScript : MonoBehaviour
             }
         }
     }
-
 
     public void unitUIUpdate()
     {
@@ -355,26 +377,19 @@ public class gameManagerScript : MonoBehaviour
                 }
             }
         }
-       
-        
     }
 
     public List<Node> generateCursorRouteTo(int x, int y)
     {
-
         if (TMS.selectedUnit.GetComponent<UnitScript>().x == x && TMS.selectedUnit.GetComponent<UnitScript>().y == y)
         {
             currentPathForUnitRoute = new List<Node>();
-            
-
             return currentPathForUnitRoute;
         }
         if (TMS.unitCanEnterTile(x, y) == false)
         {
             return null;
         }
-
-
         currentPathForUnitRoute = null;
         Dictionary<Node, float> dist = new Dictionary<Node, float>();
         Dictionary<Node, Node> prev = new Dictionary<Node, Node>();
@@ -383,8 +398,6 @@ public class gameManagerScript : MonoBehaviour
         dist[source] = 0;
         prev[source] = null;
         List<Node> unvisited = new List<Node>();
-
-
         foreach (Node n in TMS.graph)
         {
 
@@ -395,10 +408,8 @@ public class gameManagerScript : MonoBehaviour
             }
             unvisited.Add(n);
         }
-
         while (unvisited.Count > 0)
         {
-
             Node u = null;
             foreach (Node possibleU in unvisited)
             {
@@ -407,15 +418,11 @@ public class gameManagerScript : MonoBehaviour
                     u = possibleU;
                 }
             }
-
-
             if (u == target)
             {
                 break;
             }
-
             unvisited.Remove(u);
-
             foreach (Node n in u.neighbours)
             {
                 float alt = dist[u] + TMS.costToEnterTile(n.x, n.y);
@@ -446,13 +453,10 @@ public class gameManagerScript : MonoBehaviour
     {
         quadToReset.GetComponent<Renderer>().material = UICursor;
         quadToReset.transform.eulerAngles = new Vector3(90, 0, 0);
-        
     }
 
     public Vector2 directionBetween(Vector2 currentVector, Vector2 nextVector)
     {
-
-        
         Vector2 vectorDirection = (nextVector - currentVector).normalized;
        
         if (vectorDirection == Vector2.right)
@@ -601,8 +605,6 @@ public class gameManagerScript : MonoBehaviour
             quadToUpdate.GetComponent<Renderer>().enabled = true;
         }
     }
-    
-
 
     public IEnumerator checkIfUnitsRemainCoroutine(GameObject unit, GameObject enemy)
     {
@@ -637,7 +639,4 @@ public class gameManagerScript : MonoBehaviour
         displayWinnerUI.GetComponentInChildren<TextMeshProUGUI>().SetText("Winner!");
 
     }
-
-  
-   
 }

@@ -6,6 +6,7 @@ using UnityEngine.UI;
 
 public class UnitScript : MonoBehaviour
 {
+
     public int teamNum;
     public int x;
     public int y;
@@ -153,11 +154,17 @@ public class UnitScript : MonoBehaviour
         currentHealthPoints = currentHealthPoints - x;
         updateHealthUI();
     }
+<<<<<<< HEAD
     public void heal(int x)
     {
         currentHealthPoints = currentHealthPoints + x;
         updateHealthUI();
     }
+=======
+    //------------------------------ more skill
+
+
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
     public void wait()
     {
 

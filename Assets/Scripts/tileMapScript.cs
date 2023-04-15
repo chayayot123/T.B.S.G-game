@@ -335,6 +335,21 @@ public class tileMapScript : MonoBehaviour
         }
     }
 
+    public void getUnitsAlive(int turn)
+    {
+        List<UnitScript> unitsAlive = new List<UnitScript>();
+        foreach (Transform team in unitsOnBoard.transform)
+        {
+            foreach (Transform unitOnTeam in team) { 
+                int unitX = unitOnTeam.GetComponent<UnitScript>().x;
+                int unitY = unitOnTeam.GetComponent<UnitScript>().y;
+                unitOnTeam.GetComponent<UnitScript>().tileBeingOccupied = tilesOnMap[unitX, unitY];
+                SkillComponent skillComponent = unitOnTeam.transform.GetComponent<SkillComponent>();
+                skillComponent.UpdateCooldown(turn);
+            }
+        }
+    }
+
     public void generatePathTo(int x, int y)
     {
 

@@ -5,6 +5,7 @@ using UnityEngine;
 public class SkillComponent : MonoBehaviour
 {
     public Skill skill;
+<<<<<<< HEAD
     public int cooldownTurns;
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
@@ -43,12 +44,36 @@ public class SkillComponent : MonoBehaviour
         }
         else
         {
+=======
+    public int cooldownTurns = 2;
+    private int lastUsedTurn = -1;
+    private bool isOnCooldown = false;
+    public int cooldowncount = 0;
+
+    public void UseSkill(int currentTurn, UnitScript user)
+    {
+        Debug.Log(skill.skillName);
+        if (!isOnCooldown)
+        {
+            if (skill.skillName == "Heal") {
+                user.dealDamage(skill.skillpower);
+            } else if (skill.skillName == "Sample2") {
+                Debug.Log("Sample2");
+            } else {
+                Debug.Log("FK U");
+            }
+
+            lastUsedTurn = currentTurn;
+            isOnCooldown = true;
+        } else {
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
             Debug.Log("Skill on cooldown");
         }
     }
 
     public void UpdateCooldown(int currentTurn)
     {
+<<<<<<< HEAD
         // if (isOnCooldown && currentTurn >= lastUsedTurn + cooldownTurns)
         // {
         //     isOnCooldown = false;
@@ -65,6 +90,14 @@ public class SkillComponent : MonoBehaviour
             cooldowncount--;
             if (cooldowncount == 0) {
                 isOnCooldown = false;
+=======
+        if (isOnCooldown && currentTurn >= lastUsedTurn + cooldownTurns)
+        {
+            isOnCooldown = false;
+            cooldowncount--;
+            if (cooldowncount < 0) {
+                cooldowncount = 2;
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
             }
         }
     }
