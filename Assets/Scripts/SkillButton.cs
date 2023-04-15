@@ -59,4 +59,8 @@ public class SkillButton : MonoBehaviour
         SkillComponent skillComponent = user.GetComponent<SkillComponent>();
         return skillComponent.SkillCD(currentTurn);
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 5401f40893fe1502d18a0e9a73eb145a0e221980
