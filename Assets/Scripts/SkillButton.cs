@@ -24,7 +24,7 @@ public class SkillButton : MonoBehaviour
     public void OnClick()
     {
         // get selected character
-        Debug.Log(user);
+        // Debug.Log(user);
 
         // get skill of that character
         SkillComponent skillComponent = user.GetComponent<SkillComponent>();
