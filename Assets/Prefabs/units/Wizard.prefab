@@ -865,6 +865,7 @@ MonoBehaviour:
   unitSprite: {fileID: 21300000, guid: 2257b44c0ccd6a746999c3757dd033db, type: 3}
   unitObject: {fileID: 1213982634062764951, guid: b9cc5906a72b344599a6111ad64f7856,
     type: 3}
+  GMS: {fileID: 0}
   healthBarCanvas: {fileID: 389158417565336922}
   hitPointsText: {fileID: 389158416760488423}
   healthBar: {fileID: 389158417437765961}
@@ -895,7 +896,6 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: 91117432fe553d742b3627534717147c, type: 2}
   cooldownTurns: 2
   cooldowncount: 0
-  icon: {fileID: 0}
 --- !u!1001 &2201312379506301882
 PrefabInstance:
   m_ObjectHideFlags: 0

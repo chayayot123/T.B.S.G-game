@@ -124,7 +124,7 @@ public class tileMapScript : MonoBehaviour
                 tiles[x, y] = 0;
             }
         }
-        tiles[4, 4] = 8;
+        tiles[4, 4] = 9;
         tiles[0, 4] = 2;
         tiles[1, 4] = 8;
         tiles[2, 4] = 8;
@@ -138,7 +138,7 @@ public class tileMapScript : MonoBehaviour
         tiles[1, 5] = 8;
         tiles[2, 5] = 8;
         tiles[3, 5] = 9;
-        tiles[4, 5] = 8;
+        tiles[4, 5] = 9;
         tiles[5, 5] = 9;
         tiles[6, 5] = 8;
         tiles[7, 5] = 8;
@@ -148,7 +148,7 @@ public class tileMapScript : MonoBehaviour
         tiles[1, 3] = 8;
         tiles[2, 3] = 8;
         tiles[3, 3] = 9;
-        tiles[4, 3] = 8;
+        tiles[4, 3] = 9;
         tiles[5, 3] = 9;
         tiles[6, 3] = 8;
         tiles[7, 3] = 8;
@@ -178,7 +178,7 @@ public class tileMapScript : MonoBehaviour
         tiles[1, 2] = 12;
         tiles[2, 2] = 13;
         tiles[3, 2] = 14;
-        tiles[4, 2] = 10;
+        tiles[4, 2] = 18;
         tiles[5, 2] = 17;
         tiles[6, 2] = 18;
         tiles[7, 2] = 12;
