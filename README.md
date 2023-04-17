@@ -1,4 +1,4 @@
-# Unity_game
+# Path A Way
 ## 1.1 Background and Motivation
 Gaming has been one of the most profitable industries of humankind, it contains varieties of genres such as sport, sci-fi, horror, music, adventure and many more that you could possibly think of, but in order to create these games they require magnificent software developers like us Kasetsart University’s Faculty of Engineering’s Software and Knowledge Engineering graduate students to give birth to them elegantly providing humankind happinesses in the process.
 ## 1.2 Propose and Objective
