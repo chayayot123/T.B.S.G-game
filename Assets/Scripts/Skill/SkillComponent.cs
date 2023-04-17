@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillComponent : MonoBehaviour
 {
@@ -9,6 +10,9 @@ public class SkillComponent : MonoBehaviour
     private int lastUsedTurn = -1;
     private bool isOnCooldown = false;
     public int cooldowncount;
+    // SkillOnCDUI SOCDUI;
+    public SkillOnCDUI SOC;
+    
     // public GameObject skillEffectPrefab;
 
 
@@ -39,11 +43,14 @@ public class SkillComponent : MonoBehaviour
                 user.atkBuff(skill.skillpower);
             }
             cooldowncount = cooldownTurns;
+            tileMapScript tileMap = GameObject.FindObjectOfType<tileMapScript>();
+            tileMap.deselectUnit(); 
             lastUsedTurn = currentTurn;
             isOnCooldown = true;
         }
         else
         {
+            SOC.SkillOnCDPopUp();
             Debug.Log("Skill on cooldown");
         }
     }

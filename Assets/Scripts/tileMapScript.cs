@@ -190,7 +190,7 @@ public class tileMapScript : MonoBehaviour
         tiles[3, 7] = 4;
         tiles[4, 7] = 1;
         tiles[5, 7] = 12;
-        tiles[6, 7] = 10;
+        tiles[6, 7] = 18;
         tiles[7, 7] = 6;
         tiles[8, 7] = 2;
 

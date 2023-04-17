@@ -64,7 +64,6 @@ public class gameManagerScript : MonoBehaviour
 
 
     public GameObject quadThatIsOneAwayFromUnit;
-
    
     public void Start()
     {
@@ -97,6 +96,7 @@ public class gameManagerScript : MonoBehaviour
             if (TMS.selectedUnit != null && TMS.selectedUnit.GetComponent<UnitScript>().getMovementStateEnum(1) == TMS.selectedUnit.GetComponent<UnitScript>().unitMoveState)
             {
                 SB.GetUnitData(TMS.selectedUnit.GetComponent<UnitScript>());
+                SB.UpdateAbilitySprite();
                 setSkillCooldownUI(SB.GetSkillCooldown(turn));
                 SB.SendCurrentTurn(turn);
                 SB.RevealButton();
@@ -155,8 +155,16 @@ public class gameManagerScript : MonoBehaviour
 
     public void setSkillCooldownUI(int skillcd)
     {
-        skillCooldownUI.SetText((skillcd).ToString());
-    }
+        if (skillcd == 0)
+        {
+            skillCooldownUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            skillCooldownUI.gameObject.SetActive(true);
+            skillCooldownUI.SetText(skillcd.ToString());
+        }
+    } 
 
     public void setCurrentTeamUI()
     {

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SkillButton : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class SkillButton : MonoBehaviour
     public Skill skill;
     public int turn;
     public int cooldownDisplay;
+    public Image abilityImage;
 
     void Start()
     {
@@ -58,5 +60,11 @@ public class SkillButton : MonoBehaviour
     {
         SkillComponent skillComponent = user.GetComponent<SkillComponent>();
         return skillComponent.SkillCD(currentTurn);
+    }
+
+    public void UpdateAbilitySprite()
+    {
+        Debug.Log(user.abilitySprite);
+        abilityImage.sprite = user.abilitySprite;
     }
 }

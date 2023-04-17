@@ -58,6 +58,7 @@ public class UnitScript : MonoBehaviour
     public bool completedMovement = false;
 
     public ParticleSystem skillFXPrefab;
+    public Sprite abilitySprite;
 
     private void Awake()
     {
@@ -71,8 +72,6 @@ public class UnitScript : MonoBehaviour
         unitMoveState = movementStates.Unselected;
         currentHealthPoints = maxHealthPoints;
         hitPointsText.SetText(currentHealthPoints.ToString());
-
-
     }
 
     public void LateUpdate()
